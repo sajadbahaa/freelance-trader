@@ -1,0 +1,502 @@
+:root {
+  --bg: #191f1f;
+  --text: #fbf7f7;
+  --max-header: 1000px;
+  --header-color: rgb(39, 46, 84);
+  --radious: 10px;
+  --font-size: 1.4rem;
+  --btn: rgb(168, 50, 127);
+  --radious-l2: 30px;
+  --max-width: 1000px;
+  --txt-center: center;
+  --padding: 20px;
+  --margin: 20px;
+  --bg-jop: hsl(304, 85%, 36%);
+  --header-content: 500px;
+  --margin-bottom: 10px;
+  --radiou-btn: 25px;
+  --slide-w: clamp(200px, 40vw, 420px);
+  --txt-black: black;
+  --border: yellow;
+  --shadow: 0px 0px 5px rgb(24, 23, 23);
+  /* --slide-h: 420px; */
+  --muted: rgba(229, 234, 230, 0.836);
+  --active: rgb(15, 95, 255);
+  --bg-menu: #333;
+  --default-color: #ffffff;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Include borders in element width/height */
+  padding: 0;
+  margin: 0;
+}
+body {
+  font: 1rem system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  /* color: var(--text); */
+  line-height: 1.4;
+}
+
+.header-page {
+}
+main {
+  min-height: 200vh;
+}
+.main-style {
+  background-color: #b8d7f4;
+}
+.header-page {
+  background-color: transparent;
+  overflow: hidden;
+}
+.row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.hero-inner {
+  display: flex;
+  /* flex-wrap: now; */
+  justify-content: space-around;
+  align-items: center;
+  gap: 4rem;
+  padding: var(--padding);
+  margin: 0 10px;
+  z-index: 10;
+}
+.genral-color {
+  color: var(--text);
+}
+.muted {
+  color: var(--muted);
+}
+
+.hero-nav a {
+  text-decoration: none;
+  transition: color 0.3s;
+  /* font-size: 1rem; */
+  font-weight: 700;
+}
+.hero-nav a:hover {
+  color: rgb(41, 102, 255);
+}
+
+.brand {
+  white-space: nowrap;
+}
+.bold {
+  font-weight: bold;
+}
+.active {
+  color: var(--active);
+}
+
+/* CSS: أضف في style.css */
+.menu {
+  position: relative;
+  display: none;
+}
+
+/* شكل الزر */
+.btn1 {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+/* القائمة المنسدلة */
+.dropdown {
+  position: absolute;
+  top: 120%;
+  left: 50%; /* منتصف الزر */
+  transform: translateX(-50%); /* نرجعها نصف عرضها */
+  background-color: #222;
+  border-radius: 8px;
+  padding: 10px 0;
+  display: none; /* مخفية افتراضياً */
+  flex-direction: column;
+  min-width: 150px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  align-items: center;
+}
+
+/* روابط القائمة */
+.dropdown-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  transition: background 0.3s;
+}
+
+.dropdown-link:hover {
+  background-color: #0078ff;
+}
+
+/* 🔥 الحيلة: لما يكون الفوكس داخل div.menu */
+.menu:focus-within .dropdown {
+  display: flex;
+}
+
+/* لو تريد تغلق لما تضغط خارج */
+.menu button:focus {
+  outline: none;
+}
+
+.btn1 {
+  --color: black;
+  --rad-menu: 50%;
+  background-color: var(--color);
+  border-radius: var(--rad-menu);
+}
+.btn {
+  background: var(--bg-menu);
+  color: var(--text);
+  border: none;
+  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-radius: var(--radious);
+}
+.btn2 {
+  background-color: var(--active);
+  padding: var(--padding);
+}
+.btn:hover {
+  background: #555;
+}
+
+.btn svg {
+  transition: transform 0.3s;
+}
+
+.bg-scrren {
+  width: 100%;
+  height: 100vh; /* أو 100vh لو تريدها تغطي الشاشة بالكامل */
+  background-image: url("/assest/page-screen/bg_home.jpg");
+  background-size: cover; /* تخلي الصورة تملأ العنصر */
+  background-position: center; /* تخليها تتوسط دائماً */
+  background-repeat: no-repeat;
+  /* object-fit: fill; */
+  z-index: 10;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* لتوسيط النص والعناصر */
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+  text-align: center; /* يخلي النصوص مرتبة للوسط */
+  color: var(--genral-color, #fff);
+  position: relative;
+  z-index: 2; /* حتى يظهر فوق الخلفية */
+  min-height: 80vh;
+}
+.wrap {
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.3rem;
+  align-items: stretch;
+  margin-bottom: 3rem;
+}
+.item {
+  color: #191f1f;
+  overflow: hidden;
+}
+.item img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+.art {
+  margin: 20px 0;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* padding: 10px; */
+  justify-content: space-evenly;
+  height: 100%;
+}
+.content p {
+  margin-bottom: 10px;
+}
+.p-main {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+.readMore {
+  font-size: 1rem;
+  padding: 10px;
+  white-space: nowrap;
+}
+.btn3 {
+  background-color: transparent;
+  color: blue;
+}
+.btn3:hover {
+  color: rgb(222, 54, 141);
+  background-color: #060606;
+}
+
+.sp-style {
+  color: #555;
+}
+
+.services {
+  padding: var(--padding);
+  color: var(--txt-black);
+  min-height: 50vh;
+}
+.note {
+  display: block;
+}
+.service-header {
+  margin-bottom: 10px;
+  padding: 10px 0px;
+  border-bottom: 1px solid;
+}
+ul {
+  list-style: none; /* نحذف الترقيم الافتراضي */
+  counter-reset: my-counter; /* نبدأ عدّاد جديد */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  justify-content: space-evenly;
+  gap: 1rem;
+  padding: var(--padding);
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 10px auto;
+}
+
+ul li {
+  counter-increment: my-counter; /* كل li يزيد العداد */
+  position: relative;
+  padding: 1rem;
+  text-align: center;
+}
+.thump {
+  width: 300px;
+  height: auto;
+  aspect-ratio: 4/3;
+  display: block;
+  object-fit: cover;
+  padding: 1rem;
+}
+
+span,
+h1,
+h2,
+p {
+  padding: 10px;
+}
+li p {
+  margin: 10px 0px;
+  padding: 10px 0px;
+}
+ul {
+  animation: slideIn 0.6s ease-in-out forwards;
+}
+ul li {
+  background-color: var(--default-color);
+  border-radius: var(--radious);
+  box-shadow: var(--shadow);
+  /* opacity: 0; */
+  transition: transform 0.5s ease;
+  overflow: hidden;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+ul li:hover {
+  transform: translateY(5px);
+}
+.thump {
+  transition: filter 0.3s ease, transform 0.6s ease-in;
+  width: 100%;
+  aspect-ratio: 3/2;
+  display: block;
+  object-fit: cover;
+}
+.thump:hover {
+  filter: grayscale(50%);
+  transform: scale(1.1);
+}
+/* @keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.4);
+  }
+} */
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+
+/* 🖥️ الشاشات الكبيرة (من 1200px وأعلى) */
+
+/* 📺 شاشات كبيرة جداً (4K وما فوق) */
+@media (min-width: 1600px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .p-main {
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  ul {
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+  }
+  .p-main {
+    font-size: 1.6rem;
+  }
+}
+
+/* 💻 لابتوبات متوسطة (992px إلى 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .hero-inner {
+    gap: 2rem;
+  }
+  .hero-nav {
+    display: none;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .menu {
+    display: inline-block;
+  }
+  .p-main {
+    font-size: 1.4rem;
+  }
+}
+
+/* 📱 تابلت (768px إلى 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+  .hero-inner {
+    /* flex-direction: column; */
+    gap: 2rem;
+    text-align: center;
+  }
+  .menu {
+    display: inline-block;
+  }
+  .hero-nav {
+    display: none;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .p-main {
+    font-size: 1.3rem;
+  }
+
+  .btn,
+  .readMore {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 📲 موبايلات (أقل من 768px) */
+@media (max-width: 767px) {
+  body {
+    font-size: 0.9rem;
+    padding: 1rem;
+    line-height: 1.3;
+  }
+  .menu {
+    display: inline-block;
+  }
+  .hero-inner {
+    text-align: center;
+    display: flex;
+    gap: 1rem;
+  }
+  .hero-nav {
+    display: none;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  ul {
+    grid-template-columns: 1fr;
+  }
+
+  .p-main {
+    font-size: 1.1rem;
+  }
+
+  .btn,
+  .readMore {
+    /* width: 100%; */
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .art {
+    padding: 10px 0;
+  }
+
+  .thump {
+    width: 100%;
+    padding: 0;
+  }
+}
